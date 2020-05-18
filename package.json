@@ -1,0 +1,34 @@
+{
+  "name": "fsf-a12-burger",
+  "version": "0.1.0",
+  "description": "Full Stack Flex Assignment 12: Eat-Da-Veggie-Burger!",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icn2you/fsf-a12.git"
+  },
+  "keywords": [
+    "burger",
+    "express",
+    "handlebars",
+    "mysql",
+    "orm"
+  ],
+  "author": "Christopher B. Zenner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icn2you/fsf-a12/issues"
+  },
+  "homepage": "https://github.com/icn2you/fsf-a12#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "lodash": "^4.17.15",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.4"
+  }
+}
