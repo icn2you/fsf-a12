@@ -1,0 +1,56 @@
+<!-- Header -->
+<header></header>
+
+<!-- Primary Content -->
+<main class="container">
+  <div class="row mt-2 justify-content-center align-items-center">
+    <div id="burgers-ordered" class="col-3">
+      <h2>Veggie Burgers Ordered</h2>
+      <ul>
+        {{#each burger}}
+          {{#unless devoured}}
+            {{> ordered-burger}}
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div id="order-form" class="col-6">
+      <img src="/assets/img/veggie-burger-deluxe.png" alt="Veggie Burger Deluxe" class="img-fluid">
+      <form id="order-form">
+        <h1 class="text-center">Eat-Da-Veggie-Burger!</h1>
+        <div class="form-group col-12">
+          <label for="burger">Burger Name</label>
+          <input name="name" type="text" class="form-control burger" placeholder="Veggie Burger Deluxe" required>
+        </div>
+        <div class=" text-center">
+          <button id="order-btn" type="submit" class="btn btn-outline-dark">Order</button>
+        </div>
+      </form>
+    </div>
+    <div id="burgers-devoured" class="col-3">
+      <ul>
+        {{#each burgers}}
+          {{#if devoured}}
+            <li>{{burger_name}}</li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</main>
+
+<!-- Alerts Modal -->
+<div id="alert-modal" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="alert-msg" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div id="alert-icon" class="text-center"><i class="fas fa-exclamation-circle"></i></div>
+      <div id="alert-msg" class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer></footer>
