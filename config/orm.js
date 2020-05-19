@@ -18,7 +18,7 @@ module.exports = (() => {
     },
 
     insertOne: (table, col, val, cb) => {
-      const sqlQuery = `INSERT INTO ${table} (${col}) VALUES (${val});` 
+      const sqlQuery = `INSERT INTO ${table} (${col}) VALUES ('${val}');` 
 
       // DEBUG:
       console.log(`sqlQuery = ${sqlQuery}`);

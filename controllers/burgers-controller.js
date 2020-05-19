@@ -24,7 +24,14 @@ module.exports = (() => {
     console.log(`newBurger = ${newBurger}`);
 
     burger.create(newBurger, (result) => {
-      // ...
+      // DEBUG:
+      console.log(`result = ${JSON.stringify(result)}`);
+
+      if (result.affectedRows === 0) {
+        return res.status(500).end();
+      }
+
+      res.json({ id: result.insertId });
     });
   });
 
@@ -38,7 +45,7 @@ module.exports = (() => {
     burger.update(burgerName, condition, (result) => {
       if (result.changedRows === 0) {
         // ASSERT: Burger not found.
-        return res.status().end();
+        return res.status(404).end();
       }
 
       // OK

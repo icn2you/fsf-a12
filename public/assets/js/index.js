@@ -1,20 +1,37 @@
 // On page load ...
 $(document).ready(() => {
-  $('#order-form').on('submit', (event) => {
+  /*
+    Thanks to Jano González for [this function][url]
+
+    [url]: https://stackoverflow.com/questions/154059/how-can-i-check-for-an-empty-undefined-null-string-in-javascript
+  */
+  function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+  }
+  
+  $('#order-btn').on('click', (event) => {
     event.preventDefault();
+    
+    const newBurger = $(".burger").val().trim();
 
-    const newBurger = { name: $("#burger").val().trim() };
-
-    // Send the POST request.
-    $.ajax('/', {
-      type: 'POST',
-      data: newBurger
-    }).then(() => {
+    // If a burger was specified, then update the db.
+    if (!isBlank(newBurger)) {
+      // Send the POST request.
+      $.ajax('/', {
+        type: 'POST',
+        data: { name: newBurger }
+      }).then(() => {
         console.log("New veggie burger created!");
-        
+          
         // Reload the page to get the updated list
         location.reload();
       });
+    }
+    else {
+      $('#alert-msg').text('You did not specify a veggie burger.');
+      
+      $('#alert-modal').modal('toggle');
+    }
   });
 
   $('.devour').on('click', function(event) {
