@@ -1,8 +1,7 @@
 // Node dependencies
 const express = require("express"),
       exphbs = require('express-handlebars'),
-      morgan = require('morgan'),
-      path = require('path');
+      morgan = require('morgan');
 
 // Local resources
 const routes = require('./controllers/burgers-controller');
