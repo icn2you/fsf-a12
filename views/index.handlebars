@@ -3,13 +3,13 @@
 
 <!-- Primary Content -->
 <main class="container">
-  <div class="row mt-2 justify-content-center align-items-center">
+  <div class="row mt-2 justify-content-center align-items-end">
     <div id="burgers-ordered" class="col-3">
       <h2>Veggie Burgers Ordered</h2>
       <ul>
         {{#each burger}}
           {{#unless devoured}}
-            {{> ordered-burger}}
+            {{> ordered-burgers}}
           {{/unless}}
         {{/each}}
       </ul>
@@ -28,10 +28,11 @@
       </form>
     </div>
     <div id="burgers-devoured" class="col-3">
+      <h2>Veggie Burgers Devoured</h2>
       <ul>
-        {{#each burgers}}
+        {{#each burger}}
           {{#if devoured}}
-            <li>{{burger_name}}</li>
+            {{> devoured-burgers}}
           {{/if}}
         {{/each}}
       </ul>
