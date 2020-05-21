@@ -21,16 +21,18 @@ module.exports = (() => {
     const newBurger = req.body.name;
 
     // DEBUG:
-    console.log(`newBurger = ${newBurger}`);
+    // console.log(`newBurger = ${newBurger}`);
 
     burger.create(newBurger, (result) => {
       // DEBUG:
       // console.log(`result = ${JSON.stringify(result)}`);
 
       if (result.affectedRows === 0) {
+        // ASSERT: New burger not created in database.
         return res.status(500).end();
       }
 
+      // ASSERT: New burger created in database.
       res.json({ id: result.insertId });
     });
   });
@@ -38,6 +40,9 @@ module.exports = (() => {
   router.put('/:id', (req, res) => {
     const burgerID = req.params.id,
           devoured = req.body.devoured;
+
+    // DEBUG:
+    // console.log(`burgerID = ${burgerID}`);
 
     burger.update('devoured', devoured, burgerID, (result) => {
       // DEBUG:
@@ -48,6 +53,7 @@ module.exports = (() => {
         return res.status(404).end();
       }
 
+      // ASSERT: Burger updated to devoured in database.
       res.sendStatus(200);
     });
   });

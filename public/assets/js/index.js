@@ -25,7 +25,7 @@ $(document).ready(() => {
         // DEBUG:
         // console.log("New veggie burger created!");
           
-        // Reload the page to get the updated list
+        // Reload the page to get the updated list of ordered burgers.
         location.reload();
       });
     }
@@ -38,10 +38,6 @@ $(document).ready(() => {
 
   // Listen for user to devour a burger.
   $(document).on('click', '.devour', function(event) {
-    console.log(`event = ${JSON.stringify(event.key)}`);
-
-    console.log(`this = ${JSON.stringify($(this).data())}`);
-
     const id = $(this).data('id'),
           name = $(this).data('name'),
           eaten = { devoured: true };
@@ -51,10 +47,11 @@ $(document).ready(() => {
       type: "PUT",
       data: eaten
     }).then(() => {
-        console.log(`${name} voraciously devoured!`);
+      // DEBUG
+      // console.log(`${name} voraciously devoured!`);
         
-        // Reload the page to get the updated list
-        location.reload();
+      // Reload the page to get the updated list of devoured burgers.
+      location.reload();
     });
   });
 });
