@@ -108,3 +108,6 @@ dist
 
 # macOS miscellany
 .DS_Store
+
+# Pixelmator Pro directories
+*.pxd/
