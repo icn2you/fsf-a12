@@ -3,9 +3,9 @@
 
 <!-- Primary Content -->
 <main class="container-fluid">
-  <div class="row mt-2 justify-content-center align-items-start">
-    <div id="burgers-ordered" class="col-3">
-      <h2>Veggie Burgers Ordered</h2>
+  <div class="row mt-2 justify-content-around align-items-start">
+    <div id="burgers-ordered" class="col-3 mt-5">
+      <h2 class="text-center">Ordered</h2>
       <ul>
         {{#each burger}}
           {{#unless devoured}}
@@ -15,20 +15,25 @@
       </ul>
     </div>
     <div id="order-form" class="col-6">
-      <img src="/assets/img/veggie-burger-deluxe.png" alt="Veggie Burger Deluxe" class="img-fluid">
-      <form id="order-form col-8">
+      <figure class="text-center">
+        <img id="veggie-burger-deluxe" src="/assets/img/veggie-burger-deluxe.png" alt="Veggie Burger Deluxe" class="img-fluid">
+      </figure>
+      <form id="order-form">
         <h1 class="text-center">Eat-Da-Veggie-Burger!</h1>
-        <div class="form-group">
-          <label for="burger">Burger Name</label>
-          <input name="name" type="text" class="form-control burger" placeholder="Veggie Burger Deluxe" required>
+        <div class="form-group mt-4">
+          <!--<label for="burger">Burger Name</label>-->
+          <input id="burger-name" name="name" type="text" class="form-control burger" placeholder="Veggie Burger Deluxe" required>
         </div>
         <div class=" text-center">
           <button id="order-btn" type="submit" class="btn btn-outline-dark">Order</button>
         </div>
       </form>
+      <figure class="mt-4 text-center">
+        <img id="vegetarian-friendly-logo" src="/assets/img/vegetarian-friendly.png" alt="Vegetarian Friendly" class="img-fluid">
+      </figure>
     </div>
-    <div id="burgers-devoured" class="col-3">
-      <h2>Veggie Burgers Devoured</h2>
+    <div id="burgers-devoured" class="col-3 mt-5">
+      <h2 class="text-center">Devoured</h2>
       <ul>
         {{#each burger}}
           {{#if devoured}}
