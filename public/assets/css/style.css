@@ -1,0 +1,101 @@
+/***********************************************************************
+Eat-Da-Veggie-Burger Fonts
+***********************************************************************/
+@import url("https://fonts.googleapis.com/css2?family=Chewy&family=Open+Sans:wght@400;600;700&display=swap");
+/******************************************************************************
+ Debug Border Mixin
+
+ This mixin creates a container border for debugging purposes only.
+
+ Arguments:
+ $color - border color
+*******************************************************************************/
+/***********************************************************************
+Eat-Da-Veggie-Burger Color Palette
+***********************************************************************/
+/******************************************************************************
+ [CSS Tricks Fluid Type Mixin][fluid-type] 
+
+ This mixin is compliments of Geoff Graham at CSS Tricks. It allows a minimum
+ and maxmum font-size to be specified, making all sizes in between fluid.
+
+ [fluid-type]: https://css-tricks.com/snippets/css/fluid-typography/
+*******************************************************************************/
+/******************************************************************************
+ Rounded Bottom Borders Mixin
+
+ This mixin generates bottom borders with rounded ends that are intended to be
+ used with `h1` through `h6` elements.
+
+ Arguments:
+ $color -> bottom border color
+ $size -> half the decorative line height (NOTE: The decorative line is 
+   constructed from a top and bottom border.)
+*******************************************************************************/
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  05/20/2020
+File:  style.css
+Ver.:  0.1.0 20200520
+
+This CSS specifies the layout and style for the Eat-Da-Veggie-Burger
+Node app.
+***********************************************************************/
+/***********************************************************************
+ Global Elements
+***********************************************************************/
+html {
+  font-size: 15px;
+}
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(15px + 3 * ((100vw - 320px) / 960));
+  }
+}
+@media screen and (min-width: 1280px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+body {
+  background-color: #FFCA80;
+  color: #22212C;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  line-height: 1.5em;
+}
+
+/***********************************************************************
+ Main Content
+***********************************************************************/
+#veggie-burger-deluxe {
+  max-width: 480px;
+}
+
+h1 {
+  font-family: "Chewy", cursive;
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+h2:after {
+  content: "";
+  display: block;
+  border-top: 2px solid #22212C;
+  border-bottom: 2px solid #22212C;
+  border-radius: 2px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#vegetarian-friendly-logo {
+  max-width: 90px;
+}
+
+/*# sourceMappingURL=style.css.map */

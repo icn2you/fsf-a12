@@ -1,0 +1,61 @@
+/***********************************************************************
+FSWD:  Christopher B. Zenner
+Date:  05/20/2020
+File:  style.css
+Ver.:  0.1.0 20200520
+
+This CSS specifies the layout and style for the Eat-Da-Veggie-Burger
+Node app.
+***********************************************************************/
+@use 'components/debug-borders' as debug;
+@use 'components/eatdaveggieburger-palette' as palette;
+@use 'components/eatdaveggieburger-fonts' as fonts;
+@use 'components/css-tricks-fluid-type' as fluid;
+@use 'components/rounded-bottom-borders' as borders;
+
+/***********************************************************************
+ Global Elements
+***********************************************************************/
+$max-font: 18px;
+$max-width: 1280px;
+$min-font: 15px;
+$min-width: 320px;
+
+html {
+  @include fluid.fluid-type(
+    $min-width, $max-width, $min-font, $max-font);
+}
+
+body {
+  background-color: palette.$dracula-orange;
+  color: palette.$dracula-black;
+  font-family: fonts.$sans-serif-font-stack;
+  font-weight: 600;
+  line-height: 1.5em;
+}
+
+/***********************************************************************
+ Main Content
+***********************************************************************/
+#veggie-burger-deluxe {
+  max-width: 480px;
+}
+
+h1 {
+  font-family: fonts.$cursive-font-stack;
+  font-size: 3rem;
+}
+
+h2 {
+  @include borders.rounded-bottom-border(palette.$dracula-black, 2px);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#vegetarian-friendly-logo {
+  max-width: 90px;
+}
