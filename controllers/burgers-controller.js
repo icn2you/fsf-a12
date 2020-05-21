@@ -10,7 +10,7 @@ module.exports = (() => {
       const hbsObj = { burger: data };
 
       // DEBUG:
-      console.log(`hbsObj = ${JSON.stringify(hbsObj)}`);
+      // console.log(`hbsObj = ${JSON.stringify(hbsObj)}`);
 
       res.render('index', hbsObj);
     });
@@ -25,7 +25,7 @@ module.exports = (() => {
 
     burger.create(newBurger, (result) => {
       // DEBUG:
-      console.log(`result = ${JSON.stringify(result)}`);
+      // console.log(`result = ${JSON.stringify(result)}`);
 
       if (result.affectedRows === 0) {
         return res.status(500).end();
@@ -36,20 +36,19 @@ module.exports = (() => {
   });
 
   router.put('/:id', (req, res) => {
-    const burgerName = req.params.name,
-          condition = `id = ${req.params.id}`;
+    const burgerID = req.params.id,
+          devoured = req.body.devoured;
 
-    // DEBUG:
-    console.log(`condition = ${condition}`);
+    burger.update('devoured', devoured, burgerID, (result) => {
+      // DEBUG:
+      // console.log(`result = ${JSON.stringify(result)}`);
 
-    burger.update(burgerName, condition, (result) => {
       if (result.changedRows === 0) {
         // ASSERT: Burger not found.
         return res.status(404).end();
       }
 
-      // OK
-      res.status(200).end();
+      res.sendStatus(200);
     });
   });
 

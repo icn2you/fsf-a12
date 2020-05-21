@@ -9,6 +9,7 @@ $(document).ready(() => {
     return (!str || /^\s*$/.test(str));
   }
   
+  // Listen for user to submit an order.
   $('#order-btn').on('click', (event) => {
     event.preventDefault();
     
@@ -21,7 +22,8 @@ $(document).ready(() => {
         type: 'POST',
         data: { name: newBurger }
       }).then(() => {
-        console.log("New veggie burger created!");
+        // DEBUG:
+        // console.log("New veggie burger created!");
           
         // Reload the page to get the updated list
         location.reload();
@@ -34,13 +36,18 @@ $(document).ready(() => {
     }
   });
 
-  $('.devour').on('click', function(event) {
+  // Listen for user to devour a burger.
+  $(document).on('click', '.devour', function(event) {
+    console.log(`event = ${JSON.stringify(event.key)}`);
+
+    console.log(`this = ${JSON.stringify($(this).data())}`);
+
     const id = $(this).data('id'),
           name = $(this).data('name'),
           eaten = { devoured: true };
 
     // Send the PUT request.
-    $.ajax(`/id`, {
+    $.ajax(`/${id}`, {
       type: "PUT",
       data: eaten
     }).then(() => {

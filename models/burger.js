@@ -14,8 +14,8 @@ module.exports = (() => {
       });
     },
 
-    update: (val, filter, cb) => {
-      orm.updateOne('burgers', 'burger_name', val, filter, (res) => {
+    update: (col, val, filter, cb) => {
+      orm.updateOne('burgers', col, val, filter, (res) => {
         cb(res);
       })
     }
