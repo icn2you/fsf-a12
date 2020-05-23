@@ -4,7 +4,7 @@
 <!-- Primary Content -->
 <main class="container-fluid">
   <div class="row mt-2 justify-content-around align-items-start">
-    <div id="burgers-ordered" class="col-3 mt-5">
+    <div id="burgers-ordered" class="col-md-3 col-sm-12 mt-5 order-2 order-md-1">
       <h2 class="text-center">Ordered</h2>
       <ul>
         {{#each burger}}
@@ -14,7 +14,7 @@
         {{/each}}
       </ul>
     </div>
-    <div id="order-form" class="col-6">
+    <div id="order-form" class="col-md-6 col-sm-12 order-1 order-md-2">
       <figure class="text-center">
         <img id="veggie-burger-deluxe" src="/assets/img/veggie-burger-deluxe.png" alt="Veggie Burger Deluxe" class="img-fluid">
       </figure>
@@ -32,7 +32,7 @@
         <img id="vegetarian-friendly-logo" src="/assets/img/vegetarian-friendly.png" alt="Vegetarian Friendly" class="img-fluid">
       </figure>
     </div>
-    <div id="burgers-devoured" class="col-3 mt-5">
+    <div id="burgers-devoured" class="col-md-3 col-sm-12 mt-5 order-3">
       <h2 class="text-center">Devoured</h2>
       <ul>
         {{#each burger}}
