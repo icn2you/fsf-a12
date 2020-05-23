@@ -6,13 +6,15 @@ const mysql = require("mysql");
 
 // Export connection for ORM to use.
 module.exports = (() => {
-  const conn = mysql.createConnection({
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: process.env.MYSQL_DB_ROOT_PASSWD,
-    database: 'burgers_db'
-  });
+  const conn = (process.env.JAWSDB_URL) ?
+    mysql.createConnection(process.env.JAWSDB_URL) :
+    mysql.createConnection({
+      host: 'localhost',
+      port: 3306,
+      user: 'root',
+      password: process.env.MYSQL_DB_ROOT_PASSWD,
+      database: 'burgers_db'
+    });
 
   // Make connection to database.
   conn.connect(err => {
